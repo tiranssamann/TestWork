@@ -1,9 +1,8 @@
 /*
-В базе данных MS SQL Server есть продукты и категории.
- Одному продукту может соответствовать много категорий,
-  в одной категории может быть много продуктов.
-   Напишите SQL запрос для выбора всех пар «Имя продукта – Имя категории». 
-   Если у продукта нет категорий, то его имя все равно должно выводиться.
+ * Р’ Р±Р°Р·Рµ РґР°РЅРЅС‹С… MS SQL Server РµСЃС‚СЊ РїСЂРѕРґСѓРєС‚С‹ Рё РєР°С‚РµРіРѕСЂРёРё.
+ * РћРґРЅРѕРјСѓ РїСЂРѕРґСѓРєС‚Сѓ РјРѕР¶РµС‚ СЃРѕРѕС‚РІРµС‚СЃС‚РІРѕРІР°С‚СЊ РјРЅРѕРіРѕ РєР°С‚РµРіРѕСЂРёР№.
+ * РќР°РїРёС€РёС‚Рµ SQL-Р·Р°РїСЂРѕСЃ РґР»СЏ РІС‹Р±РѕСЂР° РІСЃРµС… РїР°СЂ В«РРјСЏ РїСЂРѕРґСѓРєС‚Р° - РРјСЏ РєР°С‚РµРіРѕСЂРёРёВ».
+ * Р•СЃР»Рё Сѓ РїСЂРѕРґСѓРєС‚Р° РЅРµС‚ РєР°С‚РµРіРѕСЂРёР№, С‚Рѕ РµРіРѕ РёРјСЏ РІСЃРµ СЂР°РІРЅРѕ РІС‹РІРѕРґРёС‚СЊСЃСЏ.
 */
 CREATE DATABASE TestWork_Zakarin_Artur
 GO
@@ -25,19 +24,19 @@ CREATE TABLE dbo.Products(
 GO
 
 
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (1,'ДП-5',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (2,'ДП-2',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (3,'ИМБ-4',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (4,'ИД-01',2);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (5,'ДП-02',2);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (6,'ГП-5',3);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (7,'ГП-7',3);
-INSERT INTO dbo.Products (id, Productname) VALUES (8,'ОЗК');
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (1,'Г„ГЏ-5',1);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (2,'Г„ГЏ-2',1);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (3,'Г€ГЊГЃ-4',1);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (4,'Г€Г„-01',2);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (5,'Г„ГЏ-02',2);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (6,'ГѓГЏ-5',3);
+INSERT INTO dbo.Products (id, Productname,CATId) VALUES (7,'ГѓГЏ-7',3);
+INSERT INTO dbo.Products (id, Productname) VALUES (8,'ГЋГ‡ГЉ');
 
 
-INSERT INTO dbo.Categories (Id, Catname) VALUES (1,'Радиометры');
-INSERT INTO dbo.Categories (Id, Catname) VALUES (2,'Дозиметры');
-INSERT INTO dbo.Categories (Id, Catname) VALUES (3,'Противогазы');
+INSERT INTO dbo.Categories (Id, Catname) VALUES (1,'ГђГ Г¤ГЁГ®Г¬ГҐГІГ°Г»');
+INSERT INTO dbo.Categories (Id, Catname) VALUES (2,'Г„Г®Г§ГЁГ¬ГҐГІГ°Г»');
+INSERT INTO dbo.Categories (Id, Catname) VALUES (3,'ГЏГ°Г®ГІГЁГўГ®ГЈГ Г§Г»');
 
 SELECT Products.Productname, Categories.Catname FROM Products
 LEFT JOIN Categories ON Categories.Id = Products.CATId
