@@ -17,27 +17,42 @@ GO
 CREATE TABLE dbo.Products(
   Id INT NOT NULL,
   Productname NVARCHAR(255) NULL,
-  CATId INT null,
   CONSTRAINT pkproductsid PRIMARY KEY(Id),
-  CONSTRAINT fkproductsWithCATId FOREIGN KEY (CATId) REFERENCES dbo.Categories(Id),
 )
 GO
 
+CREATE TABLE ProductCategories (
+	ProductId INT FOREIGN KEY REFERENCES Products(Id),
+	CategoryId INT FOREIGN KEY REFERENCES Categories(Id),
+	PRIMARY KEY (ProductId, CategoryId)
+)
+GO
 
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (1,'ÄÏ-5',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (2,'ÄÏ-2',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (3,'ÈÌÁ-4',1);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (4,'ÈÄ-01',2);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (5,'ÄÏ-02',2);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (6,'ÃÏ-5',3);
-INSERT INTO dbo.Products (id, Productname,CATId) VALUES (7,'ÃÏ-7',3);
-INSERT INTO dbo.Products (id, Productname) VALUES (8,'ÎÇÊ');
+INSERT INTO dbo.Products (id, Productname) VALUES (1,'DP-5');
+INSERT INTO dbo.Products (id, Productname) VALUES (2,'DP-2');
+INSERT INTO dbo.Products (id, Productname) VALUES (3,'IMB-4');
+INSERT INTO dbo.Products (id, Productname) VALUES (4,'DP-01');
+INSERT INTO dbo.Products (id, Productname) VALUES (5,'ID-02');
+INSERT INTO dbo.Products (id, Productname) VALUES (6,'GP-5');
+INSERT INTO dbo.Products (id, Productname) VALUES (7,'GP-7');
+INSERT INTO dbo.Products (id, Productname) VALUES (8,'ОЗК');
+GO
+INSERT INTO dbo.Categories (Id, Catname) VALUES (1,'Radiometer');
+INSERT INTO dbo.Categories (Id, Catname) VALUES (2,'Dozimeter');
+INSERT INTO dbo.Categories (Id, Catname) VALUES (3,'Protivogaz');
+GO
+INSERT INTO ProductCategories
+VALUES
+	(1, 1),
+	(1, 2),
+	(2, 2),
+	(3, 1),
+	(4, 2),
+	(5, 2),
+	(6, 3),
+	(7, 3)
+GO
 
-
-INSERT INTO dbo.Categories (Id, Catname) VALUES (1,'Ðàäèîìåòðû');
-INSERT INTO dbo.Categories (Id, Catname) VALUES (2,'Äîçèìåòðû');
-INSERT INTO dbo.Categories (Id, Catname) VALUES (3,'Ïðîòèâîãàçû');
-
-SELECT Products.Productname, Categories.Catname FROM Products
-LEFT JOIN Categories ON Categories.Id = Products.CATId
-ORDER BY Products.Productname
+SELECT Products.Productname, Categories.Catname FROM Products 
+LEFT JOIN ProductCategories ON Products.Id = ProductCategories.ProductId
+LEFT JOIN Categories ON ProductCategories.CategoryId = Categories.Id;
