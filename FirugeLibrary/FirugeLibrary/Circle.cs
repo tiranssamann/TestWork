@@ -4,16 +4,16 @@ using System.Text;
 
 namespace FirugeLibrary
 {
-    public class Circle
+    public class Circle : IFigure
     {
-        public static double AreaCircle(double r)
+        public double Area()
         {
             double S = 0;
-            if (r <= 0)
+            if (a <= 0)
             {
                 throw new Exception("Radius should be > 0");
             }
-            S = Math.PI * Math.Pow(r, 2);
+            S = Math.PI * Math.Pow(a, 2);
             return S;
         }
     }

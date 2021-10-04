@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "yUe1zNFW6MH7kfe4oZ2fxgOqANrJV/rLUDFycrFAYsGgtcGCGjgudLNF1oGUrrH9mRFeroKDvGVnNDOD+ovF6w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User.601--13\\Desktop\\TestWork\\FirugeLibrary\\FirugeLibrary\\FirugeLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User.601--13\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\User.601--13\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\User.601--13\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

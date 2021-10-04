@@ -4,8 +4,9 @@ using System.Text;
 
 namespace FirugeLibrary
 {
-    public class Triangle 
+    public class Triangle : IFigure
     {
+
         public static double AreaTriangle(params double[] args)
         {
             double S = 0;
@@ -41,6 +42,15 @@ namespace FirugeLibrary
             return (maxSide * maxSide) == (maxSide == a ? b * b + c * c :
                                             maxSide == b ? a * a + c * c :
                                             a * a + b * b);
+        }
+
+        public double Area()
+        {
+            
+        }
+        public double Area(double a, double b)
+        {
+
         }
     }
 }
